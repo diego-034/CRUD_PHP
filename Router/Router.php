@@ -16,16 +16,14 @@ class Router{
         if(isset($array[1])){
             $this->CallRoute($array[1]);
         }else{
-            $this->BasicController->Login();
+            $this->BasicController->Home();
         }
     }
 
     public function CallRoute($route){
         switch($route){
-            case "": $this->BasicController->Login(); break;
-            case "Login": $this->BasicController->Login(); break;
+            case "": $this->BasicController->Home(); break;
             case "Home": $this->BasicController->Home(); break;
-            case "About": $this->BasicController->About(); break;
             default: $this->CallRoute(""); break;
         }
     }
