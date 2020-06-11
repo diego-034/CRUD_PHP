@@ -30,6 +30,7 @@ class ProductsController
                     $_POST['Description']
                 ];
                 $response = $this->ProductsModel->Insert($product);
+                echo $response;
             } else {
                 echo false;
             }
@@ -46,8 +47,8 @@ class ProductsController
     {
         try {
             if (isset($_POST['Delete'])) {
-                $response = $this->Conexion->query($this->Delete, [$_POST['Delete']], ["i"]);
-                echo true;
+                $response = $this->ProductsModel->Delete([$_POST['Delete']]);
+                echo $response;
             } else {
                 echo false;
             }
@@ -60,8 +61,19 @@ class ProductsController
     {
         try {
             if (isset($_GET['Edit'])) {
-                $response = $this->Conexion->query($this->SelectOne, [$_GET['Edit']], ["i"]);
-                echo json_encode([$response[0]]);
+                $response = $this->ProductsModel->SelectOne([$_GET['Edit']]);
+                if($response[0]!= null){
+                    $object = array(
+                        'id'=>$response[0],
+                        'name'=>$response[1],
+                        'price'=>$response[2],
+                        'stock'=>$response[3],
+                        'description'=>$response[4]
+                    );
+                    echo json_encode($object);
+                }else{
+                    echo null;
+                }
             } else {
                 echo false;
             }

@@ -48,13 +48,13 @@ class ProductsModel implements IController
     {
         try {
             if (isset($_POST['Delete'])) {
-                $response = $this->Conexion->query($this->Delete, [$_POST['Delete']], ["i"]);
-                echo true;
+                $response = $this->Conexion->query($this->Delete, $productId, ["i"]);
+                return true;
             } else {
-                echo false;
+                return false;
             }
         } catch (Exception $ex) {
-            echo false;
+            return false;
         }
     }
 
@@ -62,10 +62,13 @@ class ProductsModel implements IController
     {
         try {
             if (isset($_GET['Edit'])) {
-                $response = $this->Conexion->query($this->SelectOne, [$_GET['Edit']], ["i"]);
-                echo json_encode([$response[0]]);
+                $response = $this->Conexion->query($this->SelectOne, $productId, ["i"]);
+                if($response[0]!= null){
+                    return $response[0];
+                }
+                return null;
             } else {
-                echo false;
+                return null;
             }
         } catch (Exception $ex) {
         }

@@ -1,8 +1,8 @@
 function Delete(id) {
     $.ajax({
-        url: 'http://localhost:8080/CRUD_PHP/Delete',
+        url: "http://localhost:8080/CRUD_PHP/Delete",
         data: { Delete: id },
-        type: 'POST',
+        type: "POST",
         success: function(response) {
             if (response) {
                 $("#row" + id).remove();
@@ -13,31 +13,31 @@ function Delete(id) {
             }
         },
         error: function(xhr, status) {
-            alert('Disculpe, existió un problema');
-        }
+            alert("Disculpe, existió un problema");
+        },
     });
 }
 
 function Update(id) {
     $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8080/CRUD_PHP/SelectOne',
-        data: 'Edit=' + id,
+        type: "GET",
+        url: "http://localhost:8080/CRUD_PHP/SelectOne",
+        data: "Edit=" + id,
         success: function(response) {
             var div = document.createElement("html");
             div.innerHTML = response;
-            console.log(JSON.parse(div.querySelector("body").firstChild.textContent.trim()));
-            // $("#bt-Update").val(response.Id);
-            // $("#name").val(response.Name);
-            // $("#password").val(response.Password);
-            // $("#state").val(response.State ? "true" : "false");
-            // $("#document").val(response.Document);
-            // $("#bt-Update").css({ 'display': 'block' });
-            // $("#bt-Add").css({ 'display': 'none' });
+            var response = JSON.parse(div.querySelector("body").firstChild.textContent.trim())
+            $("#bt-Update").val(response.id);
+            $("#Name").val(response.name);
+            $("#Price").val(response.price);
+            $("#Stock").val(response.stock);
+            $("#Description").val(response.description);
+            $("#bt-Update").css({ 'display': 'block' });
+            $("#bt-Add").css({ 'display': 'none' });
         },
         error: function(xhr, status) {
-            alert('Disculpe, existió un problema');
-        }
+            alert("Disculpe, existió un problema");
+        },
     });
 }
 
@@ -47,20 +47,30 @@ function Add() {
     let stock = $("#Stock").val();
     let description = $("#Description").val();
     $.ajax({
-        url: 'http://localhost:8080/CRUD_PHP/Add',
-        data: { Add: true, Name: name, Price: price, Stock: stock, Description: description },
-        type: 'POST',
+        url: "http://localhost:8080/CRUD_PHP/Add",
+        data: {
+            Add: true,
+            Name: name,
+            Price: price,
+            Stock: stock,
+            Description: description,
+        },
+        type: "POST",
         success: function(response) {
             console.log(response);
-            if (response != null) {
+            if (response) {
+                alert("Agregado con exito");
+                $("#Name").val(null);
+                $("#Price").val(null);
+                $("#Stock").val(null);
+                $("#Description").val(null);
                 location.reload();
-                alert("Agregado con exito")
             } else {
-                alert("Ocurrio un error")
+                alert("Ocurrio un error");
             }
         },
         error: function(xhr, status) {
-            alert('Disculpe, existió un problema');
-        }
+            alert("Disculpe, existió un problema");
+        },
     });
 }
