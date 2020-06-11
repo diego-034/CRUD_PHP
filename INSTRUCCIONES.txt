@@ -1,0 +1,14 @@
+_______________________________________________________
+**********************REQUISITOS***********************
+1.PHP >= 7.4.4
+2.XAMPP o WAMPP
+_______________________________________________________
+*******************************************************
+___________________ INSTRUCCIONES _____________________
+
+1.Crear La base de datos, el script se encuentra en 
+    Rescources/script/new_qux.sql
+2.Verificar los datos dentro del Modelo Conexion 
+    referentes a la conexión a la base de datos
+3.Poner esta carpeta en el servidor
+_______________________________________________________
