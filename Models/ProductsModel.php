@@ -29,21 +29,17 @@ class ProductsModel implements IController
     public function Insert($product)
     {
         try {
-            if (isset($_POST['Add'])) {
-                $product = [
-                    $_POST['Name'],
-                    $_POST['Price'],
-                    $_POST['Stock'],
-                    $_POST['Description']
-                ];
+            if ($product != null) {
                 $response = $this->Conexion->query($this->Insert, $product, ["s", "i", "i", "s"]);
+                return true;
             } else {
-                echo false;
+                return false;
             }
         } catch (Exception $ex) {
-            echo false;
+            return false;
         }
     }
+
     public function Update($product)
     {
     }
