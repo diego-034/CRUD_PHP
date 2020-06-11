@@ -1,6 +1,5 @@
 <?php
 require_once "Controllers/Interface/IController.php";
-require_once "Models/Conexion.php";
 
 class ProductsController implements IController
 {
@@ -40,7 +39,7 @@ class ProductsController implements IController
                 echo false;
             }
         } catch (Exception $ex) {
-            return false;
+            echo false;
         }
     }
     public function Update()
@@ -56,6 +55,7 @@ class ProductsController implements IController
                 echo false;
             }
         } catch (Exception $ex) {
+            echo false;
         }
     }
     public function SelectOne()
@@ -66,7 +66,7 @@ class ProductsController implements IController
                 $array = array(
                     0=>$response[0]
                 );
-                echo json_encode($array);
+                echo json_encode([$response[0]]);
             }else{
                 echo false;
             }

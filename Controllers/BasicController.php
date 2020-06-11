@@ -1,16 +1,13 @@
 <?php
 require_once "Controllers/ProductsController.php";
-require_once "Models/Products.php";
 
 class BasicController
 {
     private ProductsController $ProductsController;
-    private Products $Products;
 
     public function __construct()
     {
         $this->ProductsController = new ProductsController();
-        $this->Products = new Products();
     }
 
     public function Home()
