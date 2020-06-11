@@ -4,7 +4,6 @@ require_once "Models/Interface/IController.php";
 
 class ProductsModel implements IController
 {
-
     private Conexion $Conexion;
     private $Consult = "SELECT * FROM products";
     private $Insert = "INSERT INTO products(Name,Price,Stock,Description) VALUES(?,?,?,?)";
@@ -43,7 +42,7 @@ class ProductsModel implements IController
     public function Update($product)
     {
         try {
-            if ($product[0] != null) {
+            if ($product != null) {
                 $response = $this->Conexion->query($this->Update, $product, ["s", "i", "i", "s","i"]);
                 return true;
             } else {
@@ -56,7 +55,7 @@ class ProductsModel implements IController
     public function Delete($productId)
     {
         try {
-            if (isset($_POST['Delete'])) {
+            if ($productId != null) {
                 $response = $this->Conexion->query($this->Delete, $productId, ["i"]);
                 return true;
             } else {
@@ -70,7 +69,7 @@ class ProductsModel implements IController
     public function SelectOne($productId)
     {
         try {
-            if (isset($_GET['Edit'])) {
+            if ($productId != null) {
                 $response = $this->Conexion->query($this->SelectOne, $productId, ["i"]);
                 if ($response[0] != null) {
                     return $response[0];

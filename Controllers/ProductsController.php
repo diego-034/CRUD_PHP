@@ -95,6 +95,7 @@ class ProductsController
                 echo false;
             }
         } catch (Exception $ex) {
+            echo false;
         }
     }
 }
