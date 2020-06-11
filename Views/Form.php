@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" id="bt-Update" value="Update"  class="btn btn-primary" style="display:none">Actualizar</button>
+        <button type="button" id="bt-Update" onclick="Update(this.value)" class="btn btn-primary" style="display:none">Actualizar</button>
         <button type="button"  id="bt-Add" value="Add" onclick="Add()"  class="btn btn-success">Agregar</button>
     </form>
 </div>

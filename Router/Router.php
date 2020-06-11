@@ -31,6 +31,7 @@ class Router{
             case "Add": $this->ProductsController->Insert(); break;
             case "Delete": $this->ProductsController->Delete(); break;
             case "SelectOne": $this->ProductsController->SelectOne(); break;
+            case "Update": $this->ProductsController->Update(); break;
             default: $this->CallRoute(""); break;
         }
     }

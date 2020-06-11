@@ -41,6 +41,23 @@ class ProductsController
 
     public function Update()
     {
+        try {
+            if (isset($_POST['Id'])) {
+                $product = array(
+                    0 => $_POST['Name'],
+                    1 => $_POST['Price'],
+                    2 => $_POST['Stock'],
+                    3 => $_POST['Description'],
+                    4 => $_POST['Id']
+                );
+                $response = $this->ProductsModel->Update($product);
+                echo $response;
+            } else {
+                echo false;
+            }
+        } catch (Exception $ex) {
+            echo false;
+        }
     }
 
     public function Delete()
@@ -62,16 +79,16 @@ class ProductsController
         try {
             if (isset($_GET['Edit'])) {
                 $response = $this->ProductsModel->SelectOne([$_GET['Edit']]);
-                if($response[0]!= null){
+                if ($response[0] != null) {
                     $object = array(
-                        'id'=>$response[0],
-                        'name'=>$response[1],
-                        'price'=>$response[2],
-                        'stock'=>$response[3],
-                        'description'=>$response[4]
+                        'id' => $response[0],
+                        'name' => $response[1],
+                        'price' => $response[2],
+                        'stock' => $response[3],
+                        'description' => $response[4]
                     );
                     echo json_encode($object);
-                }else{
+                } else {
                     echo null;
                 }
             } else {

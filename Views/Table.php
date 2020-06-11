@@ -22,7 +22,7 @@
                     <td><?php echo $invoice[4]; ?></td>
                     <td>
                         <button type="button" value="<?php echo $invoice[0]; ?>" onclick="Delete(this.value)" class="btn btn-danger">Eliminar</button>
-                        <button type="button" value="<?php echo $invoice[0]; ?>" onclick="Update(this.value)" class=" ml-4 btn btn-primary">Actualizar</button>
+                        <button type="button" value="<?php echo $invoice[0]; ?>" onclick="SelectOne(this.value)" class=" ml-4 btn btn-primary">Actualizar</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
