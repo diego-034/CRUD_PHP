@@ -11,18 +11,18 @@
 
             </tr>
         </thead>
-        <tbody>
+        <tbody id="Table">
             <?php
             foreach ($data as $invoice) : ?>
-                <tr>
+                <tr id="row<?php echo $invoice[0]; ?>">
                     <th scope="row"><?php echo $invoice[0]; ?></th>
                     <td><?php echo $invoice[1]; ?></td>
                     <td><?php echo $invoice[2]; ?></td>
                     <td><?php echo $invoice[3]; ?></td>
                     <td><?php echo $invoice[4]; ?></td>
                     <td>
-                        <button type="button" class="btn btn-danger">Eliminar</button>
-                        <button type="button" class=" ml-4 btn btn-primary">Actualizar</button>
+                        <button type="button" value="<?php echo $invoice[0]; ?>" onclick="Delete(this.value)" class="btn btn-danger">Eliminar</button>
+                        <button type="button" value="<?php echo $invoice[0]; ?>" onclick="Update(this.value)" class=" ml-4 btn btn-primary">Actualizar</button>
                     </td>
                 </tr>
             <?php endforeach; ?>

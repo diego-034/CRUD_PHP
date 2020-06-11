@@ -1,11 +1,15 @@
 <?php
 require "Controllers/BasicController.php";
+
 class Router{
     private BasicController $BasicController;
+    private ProductsController $ProductsController;
+
 
     public function __construct()
     {
        $this->BasicController = new BasicController(); 
+       $this->ProductsController = new ProductsController(); 
     }
 
     public function GetRoute($url){
@@ -24,6 +28,9 @@ class Router{
         switch($route){
             case "": $this->BasicController->Home(); break;
             case "Home": $this->BasicController->Home(); break;
+            case "Add": $this->ProductsController->Insert(); break;
+            case "Delete": $this->ProductsController->Delete(); break;
+            case "SelectOne": $this->ProductsController->SelectOne(); break;
             default: $this->CallRoute(""); break;
         }
     }

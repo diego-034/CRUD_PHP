@@ -3,26 +3,26 @@
         <div class="row">
             <div class="col-sm">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Example label</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                    <label for="formGroupExampleInput">Nombre de Producto</label>
+                    <input type="text" class="form-control" id="Name" placeholder="Nombre de Producto">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Another label</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                    <label for="formGroupExampleInput2">Precio</label>
+                    <input type="text" class="form-control" id="Price" placeholder="Precio">
                 </div>
             </div>
             <div class="col-sm">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Example label</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
+                    <label for="formGroupExampleInput">Stock</label>
+                    <input type="text" class="form-control" id="Stock" placeholder="Stock">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Another label</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
+                    <label for="formGroupExampleInput2">Descripción</label>
+                    <input type="text" class="form-control" id="Description" placeholder="Descripción">
                 </div>
             </div>
-            
         </div>
-        <button type="button" class="btn btn-success">Agregar</button>
+        <button type="button" value="Update"  class="btn btn-primary" style="display:none">Actualizar</button>
+        <button type="button" value="Add" onclick="Add()"  class="btn btn-success">Agregar</button>
     </form>
 </div>
