@@ -1,6 +1,8 @@
+var url = location.protocol + '//' + location.host + '/CRUD_PHP/';
+
 function Delete(id) {
     $.ajax({
-        url: "http://localhost:8080/CRUD_PHP/Delete",
+        url: url + "Delete",
         data: { Delete: id },
         type: "POST",
         success: function(response) {
@@ -20,7 +22,7 @@ function Delete(id) {
 function SelectOne(id) {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/CRUD_PHP/SelectOne",
+        url: url + "SelectOne",
         data: "Edit=" + id,
         success: function(response) {
             var div = document.createElement("html");
@@ -46,7 +48,7 @@ function Update(id) {
     let stock = $("#Stock").val();
     let description = $("#Description").val();
     $.ajax({
-        url: "http://localhost:8080/CRUD_PHP/Update",
+        url: url + "Update",
         data: {
             Id: id,
             Name: name,
@@ -79,7 +81,7 @@ function Add() {
     let stock = $("#Stock").val();
     let description = $("#Description").val();
     $.ajax({
-        url: "http://localhost:8080/CRUD_PHP/Add",
+        url: url + "Add",
         data: {
             Add: true,
             Name: name,
