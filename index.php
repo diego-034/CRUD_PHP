@@ -10,10 +10,10 @@
 
 <body>
     <?php
-    require "Router/Router.php";
-    $object = new Router();
-    $route = $_SERVER['REQUEST_URI'];
-    $object->GetRoute($route);
+        require "Router/Router.php";
+        $object = new Router();
+        $route = $_SERVER['REQUEST_URI'];
+        $object->GetRoute($route);
     ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

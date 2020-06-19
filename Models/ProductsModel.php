@@ -28,12 +28,11 @@ class ProductsModel implements IController
     public function Insert($product)
     {
         try {
-            if ($product != null) {
-                $response = $this->Conexion->query($this->Insert, $product, ["s", "i", "i", "s"]);
-                return true;
-            } else {
+            if ($product == null) {
                 return false;
             }
+            $response = $this->Conexion->query($this->Insert, $product, ["s", "i", "i", "s"]);
+            return true;
         } catch (Exception $ex) {
             return false;
         }
@@ -42,12 +41,11 @@ class ProductsModel implements IController
     public function Update($product)
     {
         try {
-            if ($product != null) {
-                $response = $this->Conexion->query($this->Update, $product, ["s", "i", "i", "s","i"]);
-                return true;
-            } else {
+            if ($product == null) {
                 return false;
             }
+            $response = $this->Conexion->query($this->Update, $product, ["s", "i", "i", "s", "i"]);
+            return true;
         } catch (Exception $ex) {
         }
     }
@@ -55,12 +53,11 @@ class ProductsModel implements IController
     public function Delete($productId)
     {
         try {
-            if ($productId != null) {
-                $response = $this->Conexion->query($this->Delete, $productId, ["i"]);
-                return true;
-            } else {
+            if ($productId == null) {
                 return false;
             }
+            $response = $this->Conexion->query($this->Delete, $productId, ["i"]);
+            return true;
         } catch (Exception $ex) {
             return false;
         }
@@ -69,15 +66,14 @@ class ProductsModel implements IController
     public function SelectOne($productId)
     {
         try {
-            if ($productId != null) {
-                $response = $this->Conexion->query($this->SelectOne, $productId, ["i"]);
-                if ($response[0] != null) {
-                    return $response[0];
-                }
-                return null;
-            } else {
+            if ($productId == null) {
                 return null;
             }
+            $response = $this->Conexion->query($this->SelectOne, $productId, ["i"]);
+            if ($response[0] != null) {
+                return $response[0];
+            }
+            return null;
         } catch (Exception $ex) {
         }
     }
